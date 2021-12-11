@@ -5,7 +5,7 @@ import {Button} from "@mui/material";
 import {MyFuncComponent} from "components/MyFuncComponent";
 import {MyClassComponent} from "components/MyClassComponent";
 import {Link} from "react-router-dom";
-import {withMyContext} from "hoc/withMessages";
+import {withMyContext} from "hoc/withMyContext";
 import {getUser} from "actions/usersAction";
 
 const Home = (props) => {
