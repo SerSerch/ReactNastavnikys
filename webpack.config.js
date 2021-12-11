@@ -92,7 +92,7 @@ module.exports = {
       store: path.resolve(__dirname, pathName, 'store'),
       actions: path.resolve(__dirname, pathName, 'store', 'actions'),
       reducers: path.resolve(__dirname, pathName, 'store', 'reducers'),
-      types: path.resolve(__dirname, pathName, 'types'),
+      types: path.resolve(__dirname, pathName, 'store', 'types'),
       constants: path.resolve(__dirname, pathName, 'constants'),
       configs: path.resolve(__dirname, pathName, 'configs'),
       services: path.resolve(__dirname, pathName, 'services'),
