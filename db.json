@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "id": "0",
+      "name": "Bot"
+    },
+    {
+      "id": "1",
+      "name": "User"
+    }
+  ],
+  "chats": {
+    "c1": {
+      "name": "Chat1"
+    },
+    "c2": {
+      "name": "Chat2"
+    },
+    "c3": {
+      "name": "Chat3"
+    },
+    "c4": {
+      "name": "Chat4"
+    },
+    "c5": {
+      "name": "Chat5"
+    }
+  },
+  "messages": {
+    "c1": {
+      "c1m1": {
+        "author": 1,
+        "text": "Hello 1"
+      },
+      "c1m2": {
+        "author": 1,
+        "text": "Hello 2"
+      },
+      "c1m3": {
+        "author": 1,
+        "text": "Hello 3"
+      },
+      "c1m4": {
+        "author": 1,
+        "text": "Hello 4"
+      },
+      "c1m5": {
+        "author": 1,
+        "text": "Hello 5"
+      }
+    },
+    "c2": {
+      "c2m1": {
+        "author": 1,
+        "text": "Hello 1"
+      },
+      "c2m2": {
+        "author": 1,
+        "text": "Hello 2"
+      },
+      "c2m3": {
+        "author": 1,
+        "text": "Hello 3"
+      },
+      "c2m4": {
+        "author": 1,
+        "text": "Hello 4"
+      },
+      "c2m5": {
+        "author": 1,
+        "text": "Hello 5"
+      }
+    },
+    "c3": {
+      "c3m1": {
+        "author": 1,
+        "text": "Hello 1"
+      },
+      "c3m2": {
+        "author": 1,
+        "text": "Hello 2"
+      },
+      "c3m3": {
+        "author": 1,
+        "text": "Hello 3"
+      },
+      "c3m4": {
+        "author": 1,
+        "text": "Hello 4"
+      },
+      "c3m5": {
+        "author": 1,
+        "text": "Hello 5"
+      }
+    },
+    "c4": {
+      "c4m1": {
+        "author": 1,
+        "text": "Hello 1"
+      },
+      "c4m2": {
+        "author": 1,
+        "text": "Hello 2"
+      },
+      "c4m3": {
+        "author": 1,
+        "text": "Hello 3"
+      },
+      "c4m4": {
+        "author": 1,
+        "text": "Hello 4"
+      },
+      "c4m5": {
+        "author": 1,
+        "text": "Hello 5"
+      }
+    },
+    "c5": {
+      "c5m1": {
+        "author": 1,
+        "text": "Hello 1"
+      },
+      "c5m2": {
+        "author": 1,
+        "text": "Hello 2"
+      },
+      "c5m3": {
+        "author": 1,
+        "text": "Hello 3"
+      },
+      "c5m4": {
+        "author": 1,
+        "text": "Hello 4"
+      },
+      "c5m5": {
+        "author": 1,
+        "text": "Hello 5"
+      }
+    }
+  }
+}
