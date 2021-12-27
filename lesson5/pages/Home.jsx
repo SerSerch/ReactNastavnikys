@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-// для удобного применения кучи HOC
+// для удобного подключения множества HOC и не только
 import {compose} from "redux";
 import {useSelector, useDispatch} from "react-redux";
 import {Button} from "@mui/material";
