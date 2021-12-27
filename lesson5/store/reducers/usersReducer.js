@@ -8,10 +8,19 @@ const initialState = {
   name: 'GeekBraince',
 };
 
+// работает так же как и через switch case
+
 export default handleActions({
-  [getUserAction]: (state, action) => ({
-    ...state,
-    isLogined: !!action.payload.id,
-    ...action.payload,
-  }),
+  // название обработчика события
+  // под капотом вызывается getUserAction.toString()
+  // что бы название преобразовалось в строку
+  [getUserAction]: (state, action) => {
+    console.log('Reducer getUser', action);
+    // обязательно возвращаем новый объект
+    return {
+      ...state,
+      isLogined: !!action.payload.id,
+      ...action.payload,
+    }
+  },
 }, initialState);

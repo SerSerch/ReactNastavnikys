@@ -2,26 +2,30 @@ import React, {useRef, useState} from 'react';
 import classnames from 'classnames';
 import {
   Routes,
-  Route
+  Route,
 } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import {themeTest} from './theme';
 import './style.css';
+
+// импортируем страницы
 import Home from "pages/Home";
 import MessageList from "pages/MessageList";
 
 export const App = (props) => {
   const [count, setCount] = useState(0);
-  const [messages, setMessages] = useState([]);
+  const [chats, setChats] = useState([]);
 
   const ref1 = useRef(null);
   const ref2 = useRef(null);
 
   const updateCount = () => {
     setCount((prevCount) => prevCount + 1);
-    setMessages((prevMessages) => [
-      ...prevMessages,
-      `chat${prevMessages?.length + 1}`
+    // для примера добавляется в массив строка,
+    // которая так же используется как имя ссылки для перехода в конкретный чат
+    setChats((prevChats) => [
+      ...prevChats,
+      `chat${prevChats?.length + 1}`
     ])
 
     if (count % 2) {
@@ -38,10 +42,16 @@ export const App = (props) => {
     }
   );
 
+  // в index.js еще оборачивается в <BrowserRouter>
+
   return (
-    <ThemeProvider theme={themeTest}>
+    <ThemeProvider
+      {/*  */}
+      theme={themeTest}
+    >
       <div className="wrap-container">
         <main className="main">
+          {/* в старой версии вместо <Routes> используется <Switch>*/}
           <Routes>
             <Route
               path="/"
@@ -52,7 +62,7 @@ export const App = (props) => {
                   ref2={ref2}
                   count={count}
                   updateCount={updateCount}
-                  messages={messages}
+                  chats={chats}
                 />
               }
             />

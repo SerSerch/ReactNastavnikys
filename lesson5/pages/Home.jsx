@@ -1,40 +1,75 @@
 import React, { Fragment } from 'react';
+// для удобного применения кучи HOC
 import {compose} from "redux";
 import {useSelector, useDispatch} from "react-redux";
 import {Button} from "@mui/material";
 import {MyFuncComponent} from "components/MyFuncComponent";
 import {MyClassComponent} from "components/MyClassComponent";
 import {Link} from "react-router-dom";
+// импортируем HOC
 import {withMyContext} from "hoc/withMyContext";
-import {getUser} from "actions/usersAction";
+// импортируем нужные action
+import {
+  getUser,
+  getUserTest,
+  getUserTestAction,
+} from "actions/usersAction";
 
 const Home = (props) => {
   const {
     ref1,
     ref2,
+    // эти пропсы получены из HOC withMyContext
     count,
     updateCount,
-    messages,
-    updateMessages,
+    chats,
+    updateChats,
   } = props;
 
-  const { isLogined, name } = useSelector((state) => state.user);
+  // получаем свойства из хранилища store через хук useSelector
+  // в хук можно передать функцию, которая упростит деструктуриизацию
+  // user это название из reducers/index.js
+  const {
+    isLogined,
+    name,
+  } = useSelector((myStore) => myStore.user);
+  // через деструктуризацию можно присвоить новые названия свойств
+  const {
+    isLogined: isLoginedTest,
+    name: nameTest,
+  } = useSelector((myStore) => myStore.test);
   const dispatch = useDispatch();
 
   const onButtonClick = () => {
     updateCount();
-    updateMessages();
+    updateChats();
   }
 
   const onButtonGetUser = () => {
+    // вызываем getUser из actions/usersAction
     // получаем рандомного пользователя с id 0 или 1
-    dispatch(getUser(Math.round(Math.random())))
+    const id = Math.round(Math.random());
+    dispatch(getUser(id));
+    // dispatch(getUserTest(id));
+    dispatch(getUserTestAction({
+      "id": "3",
+      "name": "Super User"
+    }))
   }
 
   return (
     <Fragment>
       <h1 className="caption">
-        Hello {name}!
+        {isLogined
+          ? `Hello ${name}!`
+          : 'will login please'
+        }
+      </h1>
+      <h1 className="caption">
+        {isLoginedTest
+          ? `Hello ${nameTest}!`
+          : 'will login please'
+        }
       </h1>
 
       <Button
@@ -65,7 +100,7 @@ const Home = (props) => {
         Click!
       </Button>
       <ul>
-        {messages?.map((item, index) => {
+        {chats?.map((item, index) => {
           return (
             <li key={index}>
               <Link to={`/chats/${item}`}>
@@ -79,6 +114,22 @@ const Home = (props) => {
   )
 }
 
+// для классовых компонентов или страниц
+// достаем данные из store, которые будут переданы в props
+// const mapStateToProps = ({user}) => ({
+//   isLogined: user.isLogined,
+//   name: user.name,
+// });
+// подключаем все используемые action, которые будут переданы в props
+// const mapActionsToProps = {
+//   getUser,
+//   getUserTest,
+//   getUserTestAction,
+// };
+
+// оборачиваем страницу в HOC withMyContext и экспортируем
 export default compose(
   withMyContext,
+  // так же тут удобно подключать connect для классовых компонентов или страниц
+  // connect(mapStateToProps, mapActionsToProps)
 )(Home);

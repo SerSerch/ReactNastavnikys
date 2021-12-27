@@ -1,5 +1,5 @@
 import {
-  getUserAction,
+  TEST_GET_USER,
 } from 'types/userTypes';
 
 const initialState = {
@@ -9,7 +9,10 @@ const initialState = {
 
 const testReducer = (state = initialState, action) => {
   switch (action.type) {
-    case getUserAction.toString():
+    // название обработчика события
+    case TEST_GET_USER:
+      console.log('Reducer getUserTest', action);
+      // обязательно возвращаем новый объект
       return {
         ...state,
         isLogined: !!action.payload.id,

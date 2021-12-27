@@ -9,7 +9,9 @@ import { store } from "./store";
 ReactDom.render(
   <StrictMode>
     <BrowserRouter>
+      {/* оборачиваем в провайдер хранилища store */}
       <Provider store={store}>
+        {/* оборачиваем в общий провайдер контекста */}
         <ContextProvider>
           <App/>
         </ContextProvider>

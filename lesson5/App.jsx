@@ -9,10 +9,12 @@ import {themeTest} from './theme';
 import './style.css';
 import Home from "pages/Home";
 import MessageList from "pages/MessageList";
+
+// для получения контекста импортируем его
 import {MyContext} from "contexts/MyContext";
 
 export const App = (props) => {
-
+  // достаем данные из контекста через хук useContext
   const {
     count,
   } = useContext(MyContext);

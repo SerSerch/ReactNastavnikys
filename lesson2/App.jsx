@@ -7,6 +7,7 @@ import {MyClassComponent} from "components/MyClassComponent";
 // то в import родителя добавляются скобки { App }
 export const App = (props) => {
   // props - это объект с данными которые получил этот компонент от родителя
+  // в нашем случае получили данные из index.js
   // деструктуризация props (для более удобного использования)
   const {
     name,
@@ -21,10 +22,16 @@ export const App = (props) => {
   const [count, setCount] = useState(0);
   const [messages, setMessages] = useState([]);
 
+  // создаем ссылку на элемент в DOM дереве
   const ref1 = useRef(null);
   const ref2 = useRef(null);
 
+  // создаем метод компонента
   const updateCount = () => {
+    // для изменения состояния можно передать новое значение
+    // либо функцию которая получит предыдущее состояние
+    // такая запись используется для устранения багов при быстром изменении состояния
+    // (к примеру при закликивании кнопки)
     setCount((prevCount) => prevCount + 1);
     setMessages((prevMessages) => [
       ...prevMessages, // берем все предыдущие сообщения
@@ -52,6 +59,8 @@ export const App = (props) => {
           в любой компонент можно передать любые типы данных через props (даже другой компонент)
           */}
           <MyFuncComponent
+            {/* передаем ref через props, что бы внутри компонента привязать его к элементу */}
+            {/* самим компонентам нельзя присвоить ref, а их элементам можно */}
             setMyRef={ref1}
             myTypeName={'func'}
           >

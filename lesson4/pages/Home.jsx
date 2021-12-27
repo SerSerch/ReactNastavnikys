@@ -10,7 +10,7 @@ const Home = (props) => {
     ref2,
     count,
     updateCount,
-    messages,
+    chats,
   } = props;
 
   return (
@@ -39,7 +39,7 @@ const Home = (props) => {
         Click!
       </Button>
       <ul>
-        {messages?.map((item, index) => {
+        {chats?.map((item, index) => {
           return (
             <li key={index}>
               <Link to={`/chats/${item}`}>
